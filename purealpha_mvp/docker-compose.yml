@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: timescale/timescaledb:latest-pg14
+    container_name: purealpha_postgres
+    environment:
+      POSTGRES_DB: purealpha
+      POSTGRES_USER: purealpha_user
+      POSTGRES_PASSWORD: purealpha_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - purealpha_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: purealpha_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - purealpha_network
+
+  api:
+    build: .
+    container_name: purealpha_api
+    command: uvicorn src.api:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_HOST=postgres
+      - DATABASE_PORT=5432
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - purealpha_network
+
+volumes:
+  postgres_data:
+
+networks:
+  purealpha_network:
+    driver: bridge

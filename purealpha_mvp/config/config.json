@@ -1,0 +1,54 @@
+{
+  "api": {
+    "title": "PureAlpha 3.1 API",
+    "version": "1.0.0",
+    "description": "AI Investment Copilot using Causal AI",
+    "debug": false
+  },
+  "database": {
+    "host": "${DATABASE_HOST}",
+    "port": "${DATABASE_PORT}",
+    "name": "${DATABASE_NAME}",
+    "user": "${DATABASE_USER}",
+    "password": "${DATABASE_PASSWORD}"
+  },
+  "redis": {
+    "host": "${REDIS_HOST}",
+    "port": "${REDIS_PORT}",
+    "db": "${REDIS_DB}"
+  },
+  "data_sources": {
+    "fred": {
+      "api_key": "${FRED_API_KEY}",
+      "base_url": "https://api.stlouisfed.org/fred"
+    },
+    "yahoo_finance": {
+      "enabled": true
+    },
+    "coingecko": {
+      "base_url": "https://api.coingecko.com/api/v3"
+    },
+    "update_interval_minutes": 15
+  },
+  "causal": {
+    "max_lag": 10,
+    "significance_level": 0.05,
+    "min_correlation": 0.3,
+    "min_r_squared": 0.15,
+    "min_oos_stability": 0.7
+  },
+  "regime": {
+    "lsi_thresholds": {
+      "normal": 30,
+      "moderate": 50,
+      "severe": 75
+    }
+  },
+  "portfolio": {
+    "risk_free_rate": 0.045,
+    "rebalance_threshold": 0.10
+  },
+  "rate_limiting": {
+    "requests_per_minute": 100
+  }
+}

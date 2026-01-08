@@ -1,0 +1,56 @@
+{
+  "VTI": {
+    "name": "Vanguard Total Stock Market ETF",
+    "type": "equities",
+    "expected_return": 0.10,
+    "volatility": 0.15,
+    "expense_ratio": 0.0003,
+    "ticker": "VTI",
+    "description": "Total US stock market exposure"
+  },
+  "VXUS": {
+    "name": "Vanguard Total International Stock ETF",
+    "type": "equities",
+    "expected_return": 0.08,
+    "volatility": 0.16,
+    "expense_ratio": 0.0007,
+    "ticker": "VXUS",
+    "description": "International developed + emerging markets"
+  },
+  "BND": {
+    "name": "Vanguard Total Bond Market ETF",
+    "type": "bonds",
+    "expected_return": 0.04,
+    "volatility": 0.05,
+    "expense_ratio": 0.0003,
+    "ticker": "BND",
+    "description": "US investment-grade bonds"
+  },
+  "GLD": {
+    "name": "SPDR Gold Trust",
+    "type": "gold",
+    "expected_return": 0.06,
+    "volatility": 0.18,
+    "expense_ratio": 0.004,
+    "ticker": "GLD",
+    "description": "Physical gold holdings"
+  },
+  "DBC": {
+    "name": "Invesco DB Commodity Index Tracking Fund",
+    "type": "commodities",
+    "expected_return": 0.07,
+    "volatility": 0.20,
+    "expense_ratio": 0.0087,
+    "ticker": "DBC",
+    "description": "Broad commodity exposure"
+  },
+  "CASH": {
+    "name": "Cash/Money Market",
+    "type": "cash",
+    "expected_return": 0.045,
+    "volatility": 0.0,
+    "expense_ratio": 0.0,
+    "ticker": null,
+    "description": "Cash reserves"
+  }
+}
